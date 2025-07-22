@@ -32,18 +32,20 @@
         alt_tab_next: alt_tab_next {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+            wait-ms = <40>;
             bindings =
                 <&macro_press &kp LEFT_GUI>,
-                <&macro_tap &kp TAB wait-ms 40>,
+                <&macro_tap &kp TAB>,
                 <&macro_release &kp LEFT_GUI>;
         };
 
         alt_tab_prev: alt_tab_prev {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+            wait-ms = <40>;
             bindings =
                 <&macro_press &kp LEFT_GUI &kp LEFT_SHIFT>,
-                <&macro_tap &kp TAB wait-ms 40>,
+                <&macro_tap &kp TAB>,
                 <&macro_release &kp LEFT_SHIFT &kp LEFT_GUI>;
         };
     };
