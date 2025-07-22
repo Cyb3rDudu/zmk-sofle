@@ -27,26 +27,33 @@
     trigger-period-ms = <16>;
 };
 
-
 / {
     macros {
-        app_next: app_next {
+        alt_tab_next: alt_tab_next {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_press &kp LGUI>, <&macro_tap &kp TAB>, <&macro_release &kp LGUI>;
+            bindings =
+                <&macro_press &kp LEFT_GUI>,
+                <&macro_tap &kp TAB>,
+                <&macro_tap &kp TAB>,
+                <&macro_release &kp LEFT_GUI>;
         };
-        
-        app_prev: app_prev {
+
+        alt_tab_prev: alt_tab_prev {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_press &kp LGUI &kp LSHFT>, <&macro_tap &kp TAB>, <&macro_release &kp LSHFT &kp LGUI>;
+            bindings =
+                <&macro_press &kp LEFT_GUI &kp LEFT_SHIFT>,
+                <&macro_tap &kp TAB>,
+                <&macro_tap &kp TAB>,
+                <&macro_release &kp LEFT_SHIFT &kp LEFT_GUI>;
         };
     };
 
-    scroll_encoder: scroll_encoder {
+    alt_tab_encoder: alt_tab_encoder {
         compatible = "zmk,behavior-sensor-rotate";
         #sensor-binding-cells = <0>;
-        bindings = <&app_next>, <&app_prev>;
+        bindings = <&alt_tab_next>, <&alt_tab_prev>;
         tap-ms = <150>;
     };
 
@@ -62,7 +69,7 @@
                 &kp C_MUTE      &kp LCTRL  &kp LEFT_ALT  &kp LEFT_GUI  &mo 1   &kp SPACE    &kp ENTER        &kp ENTER  &mo 2       &kp RIGHT_GUI   &kp DELETE  &kp RCTRL
             >;
 
-            sensor-bindings = <&scroll_encoder>;
+            sensor-bindings = <&alt_tab_encoder>;
             display-name = "LAYER0";
         };
 
@@ -75,7 +82,7 @@
                 &kp C_MUTE  &trans           &trans          &trans           &trans           &kp ENTER          &mkp LCLK        &kp SPACE        &trans           &trans      &trans     &trans
             >;
 
-            sensor-bindings = <&scroll_encoder>;
+            sensor-bindings = <&alt_tab_encoder>;
             display-name = "LAYER1";
         };
 
