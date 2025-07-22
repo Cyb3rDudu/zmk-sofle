@@ -32,8 +32,8 @@
     scroll_encoder: scroll_encoder {
         compatible = "zmk,behavior-sensor-rotate";
         #sensor-binding-cells = <0>;
-        bindings = <&kp LG(TAB)>, <&kp LG(LS(TAB))>;  // Use Left GUI (Cmd) for macOS LA for Windows/Linux
-        tap-ms = <100>;
+        bindings = <&kp LG(TAB)>, <&kp LG(LS(TAB))>;
+        tap-ms = <300>;  // Much longer debounce time
     };
 
     keymap {
