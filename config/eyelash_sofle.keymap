@@ -29,11 +29,10 @@
 
 
 / {
-
     scroll_encoder: scroll_encoder {
         compatible = "zmk,behavior-sensor-rotate";
         #sensor-binding-cells = <0>;
-        bindings = <&kp LA(TAB)>, <&kp LA(LS(TAB))>;
+        bindings = <&kp LG(TAB)>, <&kp LG(LS(TAB))>;  // Use Left GUI (Cmd) for macOS LA for Windows/Linux
         tap-ms = <100>;
     };
 
@@ -62,7 +61,7 @@
                 &kp C_MUTE  &trans           &trans          &trans           &trans           &kp ENTER          &mkp LCLK        &kp SPACE        &trans           &trans      &trans     &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
+            sensor-bindings = <&scroll_encoder>;
             display-name = "LAYER1";
         };
 
@@ -75,7 +74,7 @@
                 &trans          &trans        &trans          &trans        &trans        &kp SPACE       &mkp LCLK        &kp SPACE  &trans   &trans      &trans     &trans
             >;
 
-            sensor-bindings = <&scroll_encoder>;
+            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
             display-name = "LAYER2";
         };
 
