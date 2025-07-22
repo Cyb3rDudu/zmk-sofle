@@ -1,0 +1,2 @@
+compatible: "zmk,behavior-macro-delay"
+description: Adds a short delay in macro
