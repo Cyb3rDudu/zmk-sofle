@@ -28,17 +28,17 @@ layers:
   - P
   - {t: \, s: '|'}
   - $$mdi:apple-keyboard-shift$$
-  - A
-  - S
-  - D
-  - F
+  - '&hrm_a'
+  - '&hrm_s'
+  - '&hrm_d'
+  - '&hrm_f'
   - G
   - $$mdi:arrow-left-bold$$
   - H
-  - J
-  - K
-  - L
-  - {t: ;, s: ':'}
+  - '&hrm_j'
+  - '&hrm_k'
+  - '&hrm_l'
+  - '&hrm_semi'
   - {t: '''', s: '"'}
   - $$mdi:apple-keyboard-control$$
   - Z
