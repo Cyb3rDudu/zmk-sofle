@@ -17,7 +17,7 @@
 
 &msc {
     acceleration-exponent = <1>;      // 0
-    time-to-max-speed-ms = <100>;       // 300
+    time-to-max-speed-ms = <100>;     // 300
     delay-ms = <0>;                   // 0
 };
 
@@ -28,6 +28,106 @@
 };
 
 / {
+    /* ─────────────────────────────────────────────────────────────
+     * Home-row mods (urob “timeless” style) — one per letter
+     * - flavor: balanced
+     * - long tapping term so chords decide, not time
+     * - quick-tap + require-prior-idle to keep taps snappy
+     * - hold-trigger-on-release to allow combining same-hand mods
+     *
+     * Optional (add later when you know your matrix positions):
+     *   hold-trigger-key-positions = <RIGHT_HAND_POSITIONS THUMBS>;
+     * ──────────────────────────────────────────────────────────── */
+    behaviors {
+        hrm_a: hrm_a {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HRM_A";
+            flavor = "balanced";
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            hold-trigger-on-release;
+            bindings = <&kp A>, <&kp LCTRL>;   /* tap A, hold = Ctrl */
+        };
+
+        hrm_s: hrm_s {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HRM_S";
+            flavor = "balanced";
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            hold-trigger-on-release;
+            bindings = <&kp S>, <&kp LSHFT>;   /* tap S, hold = Shift */
+        };
+
+        hrm_d: hrm_d {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HRM_D";
+            flavor = "balanced";
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            hold-trigger-on-release;
+            bindings = <&kp D>, <&kp LEFT_ALT>; /* tap D, hold = Alt */
+        };
+
+        hrm_f: hrm_f {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HRM_F";
+            flavor = "balanced";
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            hold-trigger-on-release;
+            bindings = <&kp F>, <&kp LEFT_GUI>; /* tap F, hold = GUI */
+        };
+
+        hrm_j: hrm_j {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HRM_J";
+            flavor = "balanced";
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            hold-trigger-on-release;
+            bindings = <&kp J>, <&kp LEFT_GUI>; /* tap J, hold = GUI */
+        };
+
+        hrm_k: hrm_k {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HRM_K";
+            flavor = "balanced";
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            hold-trigger-on-release;
+            bindings = <&kp K>, <&kp LEFT_ALT>; /* tap K, hold = Alt */
+        };
+
+        hrm_l: hrm_l {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HRM_L";
+            flavor = "balanced";
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            hold-trigger-on-release;
+            bindings = <&kp L>, <&kp LSHFT>;   /* tap L, hold = Shift */
+        };
+
+        hrm_semi: hrm_semi {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HRM_SEMI";
+            flavor = "balanced";
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            hold-trigger-on-release;
+            bindings = <&kp SEMI>, <&kp LCTRL>; /* tap ;, hold = Ctrl */
+        };
+    };
+
     macros {
         alt_tab_next: alt_tab_next {
             compatible = "zmk,behavior-macro";
@@ -64,7 +164,7 @@
             bindings = <
                 &kp ESC         &kp N1     &kp N2        &kp N3        &kp N4  &kp N5       &kp UP_ARROW     &kp N6     &kp N7      &kp N8          &kp N9      &kp N0      &kp BACKSPACE
                 &kp TAB         &kp Q      &kp W         &kp E         &kp R   &kp T        &kp DOWN_ARROW   &kp Y      &kp U       &kp I           &kp O       &kp P       &kp BSLH
-                &kp LSHFT       &kp A      &kp S         &kp D         &kp F   &kp G        &kp LEFT_ARROW   &kp H      &kp J       &kp K           &kp L       &kp SEMI    &kp APOS
+                &kp LSHFT       &hrm_a     &hrm_s        &hrm_d        &hrm_f  &kp G        &kp LEFT_ARROW   &kp H      &hrm_j      &hrm_k          &hrm_l      &hrm_semi   &kp APOS
                 &kp LCTRL       &kp Z      &kp X         &kp C         &kp V   &kp B        &kp RIGHT_ARROW  &kp N      &kp M       &kp COMMA       &kp DOT     &kp FSLH    &kp RIGHT_SHIFT
                 &kp C_MUTE      &kp LCTRL  &kp LEFT_ALT  &kp LEFT_GUI  &mo 1   &kp SPACE    &kp ENTER        &kp ENTER  &mo 2       &kp RIGHT_GUI   &kp DELETE  &kp RCTRL
             >;
